@@ -13,10 +13,11 @@
 function addTwoNumbers(l1: ListNode | null, l2: ListNode | null): ListNode | null {
     let nums: Array<number> = [];
 
-    let run = true
     let overflow = 0
-    let i = 0;
-    while(run){
+    let temp: ListNode = new ListNode(0) 
+    let current: ListNode = temp;
+    let next: ListNode = null;
+    while(l1 !== null || l2 !== null || overflow > 0){
         let first = 0;
         let second = 0;
 
@@ -36,29 +37,13 @@ function addTwoNumbers(l1: ListNode | null, l2: ListNode | null): ListNode | nul
             overflow = 0;
         }
 
-        nums[i] = sum
-        console.log(nums)
+        current.next = new ListNode(sum)
+        current = current.next
+        console.log(current)
 
-        if((l1 == null || l1.next == null) && (l2 == null || l2.next == null) && overflow <= 0){
-            run = false;
-        }
-        else{
-            if(l1 !== null){l1 = l1.next}
-            if(l2 !== null){l2 = l2.next}
-            i++
-        }
+        if(l1 !== null){l1 = l1.next}
+        if(l2 !== null){l2 = l2.next}
     }
 
-    console.log("ans")
-    let answer=[];
-    let previous=null;
-    for(let j=0;j<nums.length;j++){
-        console.log(nums[nums.length-j-1])
-        let node = new ListNode(nums[nums.length-j-1],previous)
-        answer[j] = node;
-        previous = node;
-    }
-    console.log(answer[answer.length-1])
-
-    return answer[answer.length-1]
+    return temp.next
 };

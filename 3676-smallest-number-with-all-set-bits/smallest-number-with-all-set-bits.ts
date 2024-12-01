@@ -9,13 +9,5 @@ function smallestNumber(n: number): number {
         temp += "1"
     }
 
-    let test1:number = Number.parseInt(x, 2)-Number.parseInt(temp, 2)
-    let test2:number = Number.parseInt(x, 2)-Number.parseInt(temp.substring(0,temp.length-1), 2)
-
-    if(test1 < test2){
-        return Number.parseInt(temp, 2)
-    }else{
-        return Number.parseInt(temp.substring(0,temp.length-1), 2)
-    }
-    return 0
+    return Number.parseInt(temp, 2)
 };

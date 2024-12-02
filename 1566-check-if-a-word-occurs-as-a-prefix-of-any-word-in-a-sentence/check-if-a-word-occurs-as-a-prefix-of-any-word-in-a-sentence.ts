@@ -8,7 +8,3 @@ function isPrefixOfWord(sentence: string, searchWord: string): number {
 
     return -1
 };
-
-function prefixCheck(word: string){
-    
-}

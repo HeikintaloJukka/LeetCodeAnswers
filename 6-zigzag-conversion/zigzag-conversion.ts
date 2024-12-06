@@ -8,7 +8,7 @@ function convert(s: string, numRows: number): string {
     let rowLength = Math.ceil(s.length/(2*numRows-2))*numRows-1;
     let rows: string[][] = Array.from({length:numRows})
     rows.forEach((val,ind)=>{
-        rows[ind] = Array.from({length:rowLength},()=>{return ""})
+        rows[ind] = Array.from({length:rowLength},()=>{return "-"})
     })
 
     //zigzag string into matrix
@@ -37,20 +37,11 @@ function convert(s: string, numRows: number): string {
         }
     }
 
-    
-    for(let i=0;i<numRows;i++){
-        console.log(rows[i])
-    }
-
     //read matrix without init fill
-    let ans:string = "";
-    rows.forEach((row,ind)=>{
-        row.forEach((val,ind)=>{
-            if(val !== ""){
-                ans+=val
-            }
-        })
-    })
+    let ans = rows.map((row,ind)=>{
+        let temp: string[] = row
+        return temp.join("")
+    });
 
-    return ans
+    return ans.join("").split("-").join("")
 };

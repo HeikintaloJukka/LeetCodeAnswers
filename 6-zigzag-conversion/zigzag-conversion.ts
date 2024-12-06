@@ -4,7 +4,8 @@ function convert(s: string, numRows: number): string {
     }
 
     //init matrix
-    let rowLength = s.length;
+    //rowLength = sections * sectionMaxLength
+    let rowLength = Math.ceil(s.length/(2*numRows-2))*numRows-1;
     let rows: string[][] = Array.from({length:numRows})
     rows.forEach((val,ind)=>{
         rows[ind] = Array.from({length:rowLength},()=>{return ""})

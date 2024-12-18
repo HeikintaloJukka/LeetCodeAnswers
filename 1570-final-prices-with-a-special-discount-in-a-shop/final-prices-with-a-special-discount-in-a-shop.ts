@@ -2,8 +2,6 @@ function finalPrices(prices: number[]): number[] {
     let stack = []
     let result = prices.slice()
     for(let i=0;i<prices.length;i++){
-        console.log(prices)
-        console.log(result)
         while(stack.length > 0 && prices[stack[stack.length-1]] >= prices[i]){
             result[stack[stack.length-1]] -= prices[i]
             stack.pop()

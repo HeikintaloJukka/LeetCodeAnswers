@@ -7,7 +7,7 @@ function combinationSum(candidates: number[], target: number): number[][] {
 
             //only unique num combs
             for(let prev of ans){
-                if(ans.length > 0 && JSON.stringify(temp) === JSON.stringify(prev) ){ 
+                if(ans.length > 0 && temp.toString() === prev.toString() ){ 
                     return
                 }
             }

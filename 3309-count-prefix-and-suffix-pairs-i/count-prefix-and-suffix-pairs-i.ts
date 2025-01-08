@@ -1,6 +1,8 @@
 function countPrefixSuffixPairs(words: string[]): number {
 
     let isPrefixAndSuffix = (str1:string,str2:string):boolean => {
+        if (str1 > str2) return false
+
         let prefix = str2.slice(0,str1.length)
         let suffix = str2.slice(str2.length-str1.length)
         if(prefix === str1 && suffix === str1){

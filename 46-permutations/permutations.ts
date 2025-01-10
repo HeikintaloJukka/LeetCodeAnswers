@@ -1,13 +1,7 @@
 function permute(nums: number[]): number[][] {
     let ans = []
     let backtrack = (curr) => {
-        console.log("--------------")
-        console.log(curr)
-        
-
         if(nums.length === curr.length){
-            console.log("PUSHING")
-            console.log(ans)
             ans.push(curr.slice())
         }
 

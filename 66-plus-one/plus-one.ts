@@ -12,9 +12,8 @@ function plusOne(digits: number[]): number[] {
 
         //out of nums to handle +1 remaining
         if(i===0){
-            let temp = "1,"+digits
-            return temp.split(",").map(Number);
+            digits.unshift(1)
         }
     }
-    return []
+    return digits
 };

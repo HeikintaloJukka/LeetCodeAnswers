@@ -17,8 +17,7 @@ function deleteDuplicates(head: ListNode | null): ListNode | null {
     while(head !== null){
 
         if(head.next && head.next.val === head.val){
-            if(head.next.next) head.next = head.next.next
-            else head.next = null
+            head.next = head.next.next
         }
         else head = head.next
     }

@@ -15,15 +15,12 @@ function deleteDuplicates(head: ListNode | null): ListNode | null {
     dummy.next = head
 
     while(head !== null){
-        let repeat = false
 
         if(head.next && head.next.val === head.val){
             if(head.next.next) head.next = head.next.next
             else head.next = null
-            repeat = true
         }
-
-        if(!repeat) head = head.next
+        else head = head.next
     }
 
     return dummy.next

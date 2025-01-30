@@ -14,7 +14,6 @@ function deleteDuplicates(head: ListNode | null): ListNode | null {
     let dummy = new ListNode()
     dummy.next = head
 
-    console.log(head)
     while(head !== null){
         let repeat = false
 

@@ -17,7 +17,4 @@ function firstMissingPositive(nums: number[]): number {
             return 1+i+negMod
         }
     }
-
-    //all neg
-    return 1
 };

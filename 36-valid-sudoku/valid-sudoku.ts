@@ -1,5 +1,5 @@
 function isValidSudoku(board: string[][]): boolean {
-    let boxes: Set<string>[] = new Array(9).fill(null).map(() => new Set());
+    let boxes = new Array(9).fill("").map(u => { return []; });
 
     for(let k=0;k<board.length;k++){
         let checkedRow = []
@@ -17,12 +17,13 @@ function isValidSudoku(board: string[][]): boolean {
 
             // Check the box
             let idx = Math.floor(k / 3) * 3 + Math.floor(i / 3);
-            if (board[k][i] !== "." && boxes[idx].has(board[k][i])) {
+            if (board[k][i] !== "." && boxes[idx].includes(board[k][i])) {
                 return false;
             }
-            boxes[idx].add(board[k][i]);
+            boxes[idx].push(board[k][i]);
         }
     }
+    
 
     return true
 };

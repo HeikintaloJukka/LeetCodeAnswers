@@ -1,8 +1,6 @@
 function mergeArrays(nums1: number[][], nums2: number[][]): number[][] {
 
-    let length = Math.max(nums1.length,nums2.length)
     let ids = new Map()
-
     for(let i=0;i<nums1.length;i++){
         ids.set(nums1[i][0], i)
     }

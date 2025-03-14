@@ -15,7 +15,6 @@ function maximumCandies(candies: number[], k: number): number {
     let right = max
     while(left < right){
         let middle = Math.floor((left+right+1)/2)
-        console.log(middle)
         if(canAllocateCandies(candies, k, middle)){
             left = middle
         }

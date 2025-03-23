@@ -7,45 +7,28 @@ function generateMatrix(n: number): number[][] {
 
     let matrix:number[][] = Array.from({length:n}, ()=>new Array(n).fill(0))
 
-    let num = 1;
-    let right = 0
-    let left = 0
-    while(num<=n*n){
-        for(let i=right;i<n-left;i++){
-            //console.log("RIGHT "+num)
-            matrix[right][i] = num
-            num++
-            if(num >= n*n){
-                break
-            }
-        }
-        for(let i=1+right;i<n-left;i++){
-            //console.log("DOWN "+num)
-            matrix[i][n-1-right] = num
-            num++
-            if(num >= n*n){
-                break
-            } 
-        }
-        right++
+    let row = n
+    let col = n
+    let direction = 1
+    let output = []
+    let i = 0
+    let j = -1
+    let num = 1
 
-        for(let i=n-1-right;i>=left;i--){
-            //console.log("LEFT "+num)
-            matrix[n-1-left][i] = num
+    while(row*col > 0){
+        for(let k=0;k<col;k++){
+            j+=direction
+            matrix[i][j] = num
             num++
-            if(num >= n*n){
-                break
-            } 
         }
-        for(let i=n-1-right;i>=left+1;i--){
-            //console.log("UP "+num)
-            matrix[i][left] = num
+        row -= 1
+        for(let l=0;l<row;l++){
+            i+=direction
+            matrix[i][j] = num
             num++
-            if(num >= n*n){
-                break
-            } 
         }
-        left++
+        col -= 1
+        direction *= -1
     }
     return matrix
 };

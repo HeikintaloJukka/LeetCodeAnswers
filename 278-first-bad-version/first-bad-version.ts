@@ -11,7 +11,7 @@ var solution = function(isBadVersion: any) {
         let left = 1
         let right = n
         while(left < right){
-            let mid = Math.floor((right + left) / 2)
+            let mid = Math.floor(left + (right - left) / 2)
             if(isBadVersion(mid)){
                 right = mid
             }else{
